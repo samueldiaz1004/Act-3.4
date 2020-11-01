@@ -15,5 +15,11 @@ using namespace std;
 
 int main()
 {
+    BST registro("bitacoraOrdenada.txt");
+    int num;
+    cout << "Ingrese el numero de IP's con mas accesos a ver: ";
+    cin >> num;
+    cout << "Las " << num << " IP's con mas accesos son:" << endl;
+    registro.inorder(num);
     return 0;
 }
