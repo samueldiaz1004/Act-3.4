@@ -2,33 +2,35 @@
 #define BST_H
 
 #include <iostream>
-#include "DoubleLL.h"
 using namespace std;
 
 struct NodeBST
 {
     NodeBST* right = nullptr;
     NodeBST* left = nullptr;
-    long long unsigned ip;
+    string ip;
+    int cont;
 
-    NodeBST(long long unsigned ip)
+    NodeBST(string ip, int cont)
     {
         this->ip = ip;
+        this->cont = cont;
     }
 };
 
 class BST
 {
     public:
-        BST(DoubleLL* bitacora);
+        BST(string fileName);
         ~BST();
-        void insert(long long ip);
         void inorder(int amount);
 
     private:
         NodeBST* root;
+        void insert(string ip, int n);
         void inorder(int& amount, NodeBST* current);
         void remove(NodeBST* current);
+        void postorder(NodeBST* current);
 
 };
 

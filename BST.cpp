@@ -1,6 +1,6 @@
 #include "BST.h"
 
-BST::BST()
+BST::BST(string fileName)
 {
-    //ctor
+
 }
