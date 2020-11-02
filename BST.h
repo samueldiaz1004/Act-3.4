@@ -2,6 +2,8 @@
 #define BST_H
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 struct NodeBST
@@ -30,7 +32,6 @@ class BST
         void insert(string ip, int n);
         void inorder(int& amount, NodeBST* current);
         void removePostorder(NodeBST* current);
-
 };
 
 #endif

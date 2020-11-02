@@ -2,7 +2,38 @@
 
 BST::BST(string fileName)
 {
+    fstream file;
+    file.open(fileName);
+    string ip_, 
+           pastIp = "";
+    int wordCount = 0, 
+        ipReps = 1;
 
+    while(getline(file, ip_)) {
+        wordCount++;
+        string ip = "";
+        int spaces = 0;
+
+        for (int i = 0; i < ip_.length() && ip_[i] != ':'; i++) {
+            if (ip_[i] != ' ') {
+                if (spaces == 3) {
+                    ip += ip_[i];
+                }
+            } else {
+                spaces++;
+            }
+        }
+
+        if(ip != pastIp && pastIp != "") {
+            insert(ip_, ipReps);
+            ipReps = 1;
+        } else {
+            ipReps++;
+        }
+
+        pastIp = ip;
+        wordCount = 0;
+    }
 }
 
 BST::~BST()
