@@ -5,6 +5,42 @@ BST::BST(string fileName)
 
 }
 
+BST::~BST()
+{
+
+}
+
+void BST::insert(string ip, int n)
+{
+    NodeBST* nvo = new NodeBST(ip, n);
+
+    if(this->root == nullptr){
+        this->root = nvo;
+        return;
+    }
+
+    NodeBST* current = this->root;
+    NodeBST* previous;
+
+    while(current != nullptr){
+        if(n < current->cont){
+            previous = current;
+            current = current->left;
+        }
+        else{
+            previous = current;
+            current = current->right;
+        }
+    }
+
+    if(n < previous->cont){
+        previous->left = nvo;
+    }
+    else{
+        previous->right = nvo;
+    }
+}
+
 void BST::inorder(int amount) {
     inorder(amount, this->root);
     cout << endl;
