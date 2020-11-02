@@ -29,8 +29,7 @@ class BST
         NodeBST* root;
         void insert(string ip, int n);
         void inorder(int& amount, NodeBST* current);
-        void remove(NodeBST* current);
-        void postorder(NodeBST* current);
+        void removePostorder(NodeBST* current);
 
 };
 

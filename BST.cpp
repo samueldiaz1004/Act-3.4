@@ -7,7 +7,7 @@ BST::BST(string fileName)
 
 BST::~BST()
 {
-
+    removePostorder(root);
 }
 
 void BST::insert(string ip, int n)
@@ -54,5 +54,14 @@ void BST::inorder(int &amount, NodeBST *current) {
             amount--;
         }
         inorder(amount, current->left);
+    }
+}
+
+void BST::removePostorder(NodeBST* current)
+{
+    if(current != nullptr){
+        removePostorder(current->left);
+        removePostorder(current->right);
+        delete current;
     }
 }
