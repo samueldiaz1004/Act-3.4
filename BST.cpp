@@ -2,6 +2,8 @@
 
 BST::BST(string fileName)
 {
+    this->root = nullptr;
+
     fstream file;
     file.open(fileName);
     string ip_, 
@@ -25,10 +27,8 @@ BST::BST(string fileName)
                 spaces++;
             }
         }
-        
-        cout << ip << endl;
+
         if (ip != pastIp && pastIp != "") {
-            cout << pastIp << " " << ipReps << endl;
             insert(pastIp, ipReps);
             ipReps = 1;
         } else {
