@@ -7,25 +7,31 @@ BST::BST(string fileName)
     string ip_, 
            pastIp = "";
     int wordCount = 0, 
-        ipReps = 1;
+        ipReps = 0;
 
     while(getline(file, ip_)) {
         wordCount++;
         string ip = "";
         int spaces = 0;
 
-        for (int i = 0; i < ip_.length() && ip_[i] != ':'; i++) {
+        for (int i = 0; i < ip_.length(); i++) {
             if (ip_[i] != ' ') {
                 if (spaces == 3) {
-                    ip += ip_[i];
+                    if (ip_[i] != ':') {
+                        ip += ip_[i];
+                    } else {
+                        break;
+                    }
                 }
             } else {
                 spaces++;
             }
         }
-
-        if(ip != pastIp && pastIp != "") {
-            insert(ip_, ipReps);
+        
+        cout << ip << endl;
+        if (ip != pastIp && pastIp != "") {
+            cout << pastIp << " " << ipReps << endl;
+            insert(pastIp, ipReps);
             ipReps = 1;
         } else {
             ipReps++;
