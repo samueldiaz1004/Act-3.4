@@ -1,22 +1,37 @@
 #include "BST.h"
 
+// Constructor de la clase BST, se encarga de leer las ips que 
+// se encuentran en el archivo con los accesos ordenados y 
+// registrar la cantidad de apariciones (sin considerar el puerto)
+// Recibe el nombre del archivo que contiene los accesos ordenados
+// Complejidad: O(n)
 BST::BST(string fileName)
 {
+    // Se inicializa la raiz a nullptr
     this->root = nullptr;
 
-    fstream file;
-    file.open(fileName);
+    // Variables auxiliares para la insersion de nodos
     string ip_, 
            pastIp = "";
     int ipReps = 0;
 
+    // Se abre el archivo que contiene los accesos ordenados
+    fstream file;
+    file.open(fileName);
+
+    // Ciclo para leer las ips del archivo de bitacora
     while(getline(file, ip_)) {
         string ip = "";
         int spaces = 0;
 
+        // Ciclo para extraer la ip de cada linea del archivo
         for (int i = 0; i < ip_.length(); i++) {
+            // Separacion de los segmentos por espacios
             if (ip_[i] != ' ') {
+                // Condicional para seleccionar solo la ip
                 if (spaces == 3) {
+                    // Condicional para terminar el ciclo y
+                    // extraer la ip sin el puerto
                     if (ip_[i] != ':') {
                         ip += ip_[i];
                     } else {
@@ -24,17 +39,29 @@ BST::BST(string fileName)
                     }
                 }
             } else {
+                // En caso de encontrar un espacio, se incrementa
+                // spaces
                 spaces++;
             }
         }
 
+        // Condicional para contar la cantidad de veces que se
+        // repitio la ultima ip. Si la ultima ip es diferente a
+        // la ip actual, entonces la ultima ip se agrega junto
+        // a su contador
         if (ip != pastIp && pastIp != "") {
+            // Llamada a insert con la ip anterior y las veces
+            // que se repitio
             insert(pastIp, ipReps);
+            // Se restablece el contador
             ipReps = 1;
         } else {
+            // En caso de ser igual al anterior, se incrementa
+            // el contador
             ipReps++;
         }
 
+        // La ip actual pasa a ser la anterior
         pastIp = ip;
     }
 }
