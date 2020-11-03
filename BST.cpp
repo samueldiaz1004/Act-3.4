@@ -72,6 +72,8 @@ BST::BST(string fileName)
         // La ip actual pasa a ser la anterior
         pastIp = ip;
     }
+    // Cerrar archivo
+    file.close();
 }
 
 // Destructor de la clase BST
