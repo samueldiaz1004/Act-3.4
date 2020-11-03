@@ -75,18 +75,34 @@ void BST::insert(string ip, int n)
     }
 }
 
+// Metodo de preparacion para la llamada
+// recursiva de inorder
+// Recibe el numero de ip's que se quieren
+// imprimir, no regresa nada
+// Complejidad: O(n)
 void BST::inorder(int amount) {
     inorder(amount, this->root);
     cout << endl;
 }
 
+// Metodo recursivo que imprime el arbol mostrando
+// la ip y el numero de accesos en orden descendente
+// Recibe la cantidad de ip's a mostrar como
+// referencia y el nodo actual, no regresa nada
+// Complejidad: O(n)
 void BST::inorder(int &amount, NodeBST *current) {
+    // Se checa que el nodo contenga un valor
     if(current != nullptr) {
+        // Se llama inorder con el hijo derecho como actual
         inorder(amount, current->right);
+        // Se checa que aun este en el rango de accesos a mostrar
         if (amount > 0) {
+            // Se imprime la informacion del nodo
             cout << "IP: " << current->ip << " Accesos: " << current->cont << endl;
+            // Se decrementa el contador
             amount--;
         }
+        // Se llama inorder con el hijo izquierdo como actual
         inorder(amount, current->left);
     }
 }
