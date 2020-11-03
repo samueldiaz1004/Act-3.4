@@ -6,11 +6,9 @@ BST::BST(string fileName)
     file.open(fileName);
     string ip_, 
            pastIp = "";
-    int wordCount = 0, 
-        ipReps = 0;
+    int ipReps = 0;
 
     while(getline(file, ip_)) {
-        wordCount++;
         string ip = "";
         int spaces = 0;
 
@@ -38,7 +36,6 @@ BST::BST(string fileName)
         }
 
         pastIp = ip;
-        wordCount = 0;
     }
 }
 
