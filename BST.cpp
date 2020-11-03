@@ -12,7 +12,7 @@ Samuel Alejandro Diaz del Guante Ochoa - A01637592
 // se encuentran en el archivo con los accesos ordenados y
 // registrar la cantidad de apariciones (sin considerar el puerto)
 // Recibe el nombre del archivo que contiene los accesos ordenados
-// Complejidad: O(n)
+// Complejidad: O(nlog(n))
 BST::BST(string fileName)
 {
     // Se inicializa la raiz a nullptr
