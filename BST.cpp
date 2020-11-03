@@ -1,3 +1,11 @@
+/*/
+Implementacion de la clase BST
+
+Owen Jauregui Borbon - A01638122
+Luis Humberto Sanchez Vaca - A01638029
+Samuel Alejandro Diaz del Guante Ochoa - A01637592
+/*/
+
 #include "BST.h"
 
 // Constructor de la clase BST, se encarga de leer las ips que

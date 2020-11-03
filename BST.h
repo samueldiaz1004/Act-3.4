@@ -1,3 +1,17 @@
+/*/
+Header de la clase BST
+
+Clase que almacena la informacion ip junto al su numero de accesos
+ilegales registrados en una bitacora ordenada.
+La esctructuara de la clase esta basada en un "binary search tree"
+y tiene como funcion principal anexar dichas entradas y despliegar
+una cantidad especifica en orden de mayor a menor numero de accesos.
+
+Owen Jauregui Borbon - A01638122
+Luis Humberto Sanchez Vaca - A01638029
+Samuel Alejandro Diaz del Guante Ochoa - A01637592
+/*/
+
 #ifndef BST_H
 #define BST_H
 
